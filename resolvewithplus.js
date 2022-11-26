@@ -66,7 +66,7 @@ const isfilesync = (file, stat) => {
 //    b. DIRS = DIRS + DIR
 //    c. let I = I - 1
 // 5. return DIRS
-const getasnode_module_paths = start => start.split(path.sep).slice(1)
+const getasnode_module_paths = start => start.replace(/^\//, '').split(path.sep)
   .reduce((prev, p, i) => {
     // the second condition allow resolvewithplus unit-tests to pass,
     // when resolvewithplus is inside another package's node_modules
